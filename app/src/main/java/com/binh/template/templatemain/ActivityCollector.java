@@ -7,6 +7,8 @@ import java.util.List;
 
 /**
  * Created by binh on 2016/11/23.
+ *
+ *  收集并管理 所有存活的Activity实例
  */
 
 public class ActivityCollector {

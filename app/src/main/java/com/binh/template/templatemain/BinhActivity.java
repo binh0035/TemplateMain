@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 
 /**
  * Created by binh on 2016/11/23.
+ *
+ *  该App中所有Activity的父类
  */
 
 public class BinhActivity extends AppCompatActivity {
@@ -23,4 +25,5 @@ public class BinhActivity extends AppCompatActivity {
         super.onDestroy();
         ActivityCollector.removeActivity(this);
     }
+
 }
