@@ -1,10 +1,10 @@
-package com.binh.template.templatemain;
+package com.binh.template.templatemain.temp;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 /**
- * Created by binh on 2016/11/23.
+ *  Created by binh on 2016/11/23.
  *
  *  该App中所有Activity的父类
  */

@@ -1,10 +1,11 @@
-package com.binh.template.templatemain;
+package com.binh.template.templatemain.temp;
 
+import android.content.Context;
 import android.os.Handler;
 import android.widget.Toast;
 
 /**
- * Created by binh on 2016/11/23.
+ *  Created by binh on 2016/11/23.
  *
  *  单例Toast
  *
@@ -28,7 +29,7 @@ public class SingleToast {
      * @param text 显示文本
      * @param isLong 是否是Toast.LENGTH_LONG,否则Toast.LENGTH_SHORT
      */
-    public static void showToast(String text, boolean isLong) {
+    public static void showToast(Context context, String text, boolean isLong) {
         int duration;
         if (isLong)
             duration = Toast.LENGTH_LONG;
@@ -42,14 +43,14 @@ public class SingleToast {
             else
                 mToast.setDuration(duration);
         } else {
-            mToast = Toast.makeText(ThisApp.getContext(), text, duration);
+            mToast = Toast.makeText(context.getApplicationContext(), text, duration);
         }
 
         mToast.show();
     }
 
-    public static void showToast(int textId, boolean isLong) {
-        showToast(ThisApp.getContext().getResources().getString((textId)), isLong);
+    public static void showToast(Context context, int textId, boolean isLong) {
+        showToast(context, context.getResources().getString((textId)), isLong);
     }
 
     /**
@@ -57,20 +58,20 @@ public class SingleToast {
      * @param text 显示文本
      * @param duration 显示的时长,单位ms,最长为Toast.LENGTH_LONG
      */
-    public static void showToast(String text, int duration) {
+    public static void showToast(Context context, String text, int duration) {
 
         mHandler.removeCallbacks(r);
         if (mToast != null)
             mToast.setText(text);
         else
-            mToast = Toast.makeText(ThisApp.getContext(), text, Toast.LENGTH_LONG);
+            mToast = Toast.makeText(context.getApplicationContext(), text, Toast.LENGTH_LONG);
         mHandler.postDelayed(r, duration);
 
         mToast.show();
     }
 
-    public static void showToast(int resId, int duration) {
-        showToast(ThisApp.getContext().getResources().getString(resId), duration);
+    public static void showToast(Context context, int resId, int duration) {
+        showToast(context, context.getResources().getString(resId), duration);
     }
 
 }

@@ -3,10 +3,12 @@ package com.binh.template.templatemain;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.binh.template.templatemain.temp.BinhActivity;
+
 /**
- * Created by binh on 2016/11/23.
+ *  Created by binh on 2016/11/23.
  *
- * 功能:
+ *  功能:
  *      1s后自动跳转至首页
  *
  */

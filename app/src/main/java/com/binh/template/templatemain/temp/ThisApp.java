@@ -1,10 +1,10 @@
-package com.binh.template.templatemain;
+package com.binh.template.templatemain.temp;
 
 import android.app.Application;
 import android.content.Context;
 
 /**
- * Created by binh on 2016/11/23.
+ *  Created by binh on 2016/11/23.
  *
  *  该App的App类
  */

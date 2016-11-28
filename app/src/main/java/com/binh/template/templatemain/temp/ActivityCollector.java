@@ -1,4 +1,4 @@
-package com.binh.template.templatemain;
+package com.binh.template.templatemain.temp;
 
 import android.app.Activity;
 
@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by binh on 2016/11/23.
+ *  Created by binh on 2016/11/23.
  *
  *  收集并管理 所有存活的Activity实例
  */

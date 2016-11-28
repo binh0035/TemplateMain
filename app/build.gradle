@@ -11,16 +11,51 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+    signingConfigs {
+        debug {
+            // No config
         }
+        release {
+//            storeFile file("../demo.keystore")
+//            storePassword "demo"
+//            keyAlias "demo"
+//            keyPassword "demo"
+        }
+    }
+
+    buildTypes {
+        debug {
+            buildConfigField "boolean", "LOG_DEBUG", "true"    //显示Log
+            versionNameSuffix "-debug"
+            minifyEnabled false
+            zipAlignEnabled false
+            shrinkResources false
+            signingConfig signingConfigs.debug
+        }
+
+        release {
+            buildConfigField "boolean", "LOG_DEBUG", "false"    //不显示Log
+            minifyEnabled true     // 是否开启混淆
+            zipAlignEnabled true    // 是否zip优化
+            shrinkResources true    // 删除一些无用资源
+            signingConfig signingConfigs.release    // 签名所用配置文件
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'      //混淆所用文件
+        }
+    }
+
+    sourceSets {
+//        main {
+//            res.srcDirs = [
+//                    'src/main/res',
+//                    'src/main/res/pain_dialog'
+//            ]
+//        }
     }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(dir: 'libs', include: ['*.jar'])       //编译 libs 目录下的所有 jar 包
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
