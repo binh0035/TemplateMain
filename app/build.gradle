@@ -12,46 +12,45 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
-    signingConfigs {
-        debug {
-            // No config
-        }
-        release {
+//    signingConfigs {
+//        release {
 //            storeFile file("../demo.keystore")
 //            storePassword "demo"
 //            keyAlias "demo"
 //            keyPassword "demo"
-        }
-    }
+//        }
+//    }
 
     buildTypes {
         debug {
             buildConfigField "boolean", "LOG_DEBUG", "true"    //显示Log
-            versionNameSuffix "-debug"
+            versionNameSuffix "v1"      // 版本号后缀
+            applicationIdSuffix ".debug"    // 给编译后的apk包名增加后缀,以和"release"的apk在同一手机上共存
             minifyEnabled false
-            zipAlignEnabled false
             shrinkResources false
-            signingConfig signingConfigs.debug
         }
 
         release {
             buildConfigField "boolean", "LOG_DEBUG", "false"    //不显示Log
-            minifyEnabled true     // 是否开启混淆
-            zipAlignEnabled true    // 是否zip优化
-            shrinkResources true    // 删除一些无用资源
-            signingConfig signingConfigs.release    // 签名所用配置文件
+            minifyEnabled true                      // 是否开启混淆
+            shrinkResources true                    // 删除一些无用资源
+//            signingConfig signingConfigs.release    // 签名所用配置文件
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'      //混淆所用文件
         }
     }
 
-    sourceSets {
+//    sourceSets {
 //        main {
 //            res.srcDirs = [
 //                    'src/main/res',
 //                    'src/main/res/pain_dialog'
 //            ]
+//            java.srcDirs = ['src/main/java/com/binh/template/templatemain']
+//            assets.srcDirs = ['src']
+//            jni.srcDirs = ['jni']
+//            jniLibs.srcDirs = ['libs']
 //        }
-    }
+//    }
 }
 
 dependencies {
